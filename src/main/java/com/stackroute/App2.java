@@ -15,6 +15,6 @@ public class App2 {
         // System.out.println(hr.getHR().getName());
         // System.out.println(hr.getHR().getGender());
         // System.out.println(hr.getHR().getAge());
-        hero.disp();
+       // hero.disp();
     }
 }
