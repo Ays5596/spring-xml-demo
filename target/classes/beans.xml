@@ -6,25 +6,25 @@
         http://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <bean id = "hr" class = "com.stackroute.domain.Actor">
-    <constructor-arg name = "name" value="Hrithik" />
-    <constructor-arg name="gender" value="Male" />
-    <constructor-arg name="age" value="47" />
-    </bean>
-    <bean id = "dp" class = "com.stackroute.domain.Actor">
-        <constructor-arg name = "name" value="Deepika" />
-        <constructor-arg name="gender" value="Female" />
-        <constructor-arg name="age" value="38" />
-    </bean>
-    <bean id = "rk" class = "com.stackroute.domain.Actor">
-        <constructor-arg name = "name" value="Ranbir" />
+        <constructor-arg name="name" value="Hrithik" />
+        <constructor-arg name="age" value="48" />
         <constructor-arg name="gender" value="Male" />
-        <constructor-arg name="age" value="37" />
+    </bean>
+   <!-- [Showing exception of UnsatisfiedDependencyException in "byType" at Line 23:]
+    <bean id = "hr2" class = "com.stackroute.domain.Actor">
+        <property name="name" value="Hrithik" />
+        <property name="age" value="48" />
+        <property name="gender" value="Male" />
+    </bean>-->
+
+    <!-- [Showing NullPointerException when unable to find property tag in Actor as HR]
+     <bean id = "movie" class = "com.stackroute.domain.Movie" autowire="byName" /> -->
+
+    <!-- <bean id = "movie" class = "com.stackroute.domain.Movie" autowire="byType" /> -->
+
+    <bean id = "movie" class = "com.stackroute.domain.Movie">
+        <constructor-arg name="HR" ref="hr" />
     </bean>
 
-    <bean name = "movieA, movieB" class = "com.stackroute.domain.Movie" scope="prototype">
-        <constructor-arg name="HR" ref="hr" />
-        <constructor-arg name="DP" ref="dp" />
-        <constructor-arg name="RK" ref="rk" />
-    </bean>
 
 </beans>
