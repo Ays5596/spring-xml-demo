@@ -5,26 +5,29 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id = "hr" class = "com.stackroute.domain.Actor">
+   <!-- <bean id = "hr" class = "com.stackroute.domain.Actor">
         <constructor-arg name="name" value="Hrithik" />
         <constructor-arg name="age" value="48" />
         <constructor-arg name="gender" value="Male" />
-    </bean>
+    </bean>-->
    <!-- [Showing exception of UnsatisfiedDependencyException in "byType" at Line 23:]
     <bean id = "hr2" class = "com.stackroute.domain.Actor">
         <property name="name" value="Hrithik" />
         <property name="age" value="48" />
         <property name="gender" value="Male" />
     </bean>-->
-
     <!-- [Showing NullPointerException when unable to find property tag in Actor as HR]
      <bean id = "movie" class = "com.stackroute.domain.Movie" autowire="byName" /> -->
+    <!-- <bean id = "movie" class = "com.stackroute.domain.Movie" autowire="byType" />
+     -->
+    <bean id = "beanLifeCycleDemoBean"   class = "com.stackroute.demo.BeanLifeCycleDemoBean" init-method="customInit" destroy-method="customDestroy">
+        <property name="msg" value="Property is set !" />
+    </bean>
 
-    <!-- <bean id = "movie" class = "com.stackroute.domain.Movie" autowire="byType" /> -->
-
+   <!--
     <bean id = "movie" class = "com.stackroute.domain.Movie">
         <constructor-arg name="HR" ref="hr" />
     </bean>
-
+-->
 
 </beans>
